@@ -1,4 +1,20 @@
 /*this code work to scrollbar*/
+@-moz-document url-prefix() { /* Disable scrollbar Firefox */
+    html{
+      scrollbar-width: none;
+    }
+  }
+  body {
+    margin: 0; /* remove default margin */
+    scrollbar-width: none; /* Also needed to disable scrollbar Firefox */
+    -ms-overflow-style: none;  /* Disable scrollbar IE 10+ */
+    overflow-y: scroll;
+  }
+  body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Disable scrollbar Chrome/Safari/Webkit */
+  }
+
 ::-webkit-scrollbar{
     width: 0;
 }
@@ -257,11 +273,13 @@ main{
 
     font-size: 2.5rem;
     cursor: pointer;
+    transition-duration: 0.2s;
 }
 
 .main-land2 .btn-ver:hover{
-    background-color: #f89a85;
-    transition: 0.2s;
+    background-color: var(--primary-color);
+    color: var(--secundary-color);
+    
 }
 
 .second{
@@ -775,7 +793,7 @@ footer .footer-p5:hover{
 @media (min-width:768px){
 
     .nav_logo{
-        background-image: url(../imgs/RJ&V-blanco.svg);
+        background-image: url(../imgs/RJ&V-crema.svg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 13rem;
@@ -789,8 +807,8 @@ footer .footer-p5:hover{
         background-position: center;
         background-size: 180%;
     
-        width: 100%;
-        height: 92rem;
+        width: 100vw;
+        height: 100vh;
     
         display: flex;
         flex-wrap: wrap;
@@ -800,7 +818,7 @@ footer .footer-p5:hover{
     .main-land1{
         width: 100%;
         height: 50rem;
-        color: white;
+        color: var(--secundary-color);
     
         text-align: center;
         font-size: 6rem;
@@ -810,6 +828,9 @@ footer .footer-p5:hover{
         flex-direction: column;
         align-content: center;
         justify-content:flex-end;
+
+        padding-left: 3rem;
+        padding-right: 3rem;
     }
     
     .main-land2{
@@ -824,6 +845,7 @@ footer .footer-p5:hover{
         align-content: center;
         justify-content: center;
 
+        margin-top: 2rem;
     }
     
     .main-land2 .btn-ver{
@@ -832,8 +854,8 @@ footer .footer-p5:hover{
         padding-top: 2rem;
         border-radius: 10px;
         border: none;
-        background-color: var(--primary-color);
-        color: white;
+        background-color: var(--secundary-color);
+        color: var(--primary-color);
     
         text-align: center;
         text-decoration: none;
@@ -843,8 +865,8 @@ footer .footer-p5:hover{
     }
     
     .main-land2 .btn-ver:hover{
-        background-color: #f89a85;
-        transition: 0.2s;
+        background-color: var(--primary-color);
+        color: var(--secundary-color);
     }
 
     .contenido-principal {
@@ -854,6 +876,19 @@ footer .footer-p5:hover{
 	.contenido-principal > * {
 		width: 100%;
 	}
+
+    .second{
+        background-image: url(../imgs/web2escritoriofacebook.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 330%;
+        
+        width: 100%;
+        height: 80vh;
+        padding-top: 22rem;
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
 
     .fourth{
         width: 100%;
@@ -896,8 +931,6 @@ footer .footer-p5:hover{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin-bottom: 5rem;
-        margin-top: 5rem;
     }
     
     .fifth p{
@@ -906,7 +939,7 @@ footer .footer-p5:hover{
         align-items: center;
         font-size: 2.5rem;
         font-weight: bolder;
-        color: var(--primary-color);
+        color: var(--secundary-color);
         margin-bottom: 1.5rem;
     }
     
@@ -937,11 +970,11 @@ footer .footer-p5:hover{
     
     input:focus{
         outline: none;
-        color: #808080;
+        color: var(--secundary-color);
     }
     
     label{
-        color: #808080;
+        color: var(--secundary-color);
         font-size: 16px;
         position: absolute;
         left: 5px;
@@ -954,7 +987,7 @@ footer .footer-p5:hover{
     input:valid~label{
         top: -14px;
         font-size: 12px;
-        color: var(--primary-color);
+        color: var(--secundary-color);
     }
     
     .barra{
@@ -969,7 +1002,7 @@ footer .footer-p5:hover{
         height: 2px;
         bottom: 0;
         position: absolute;
-        background: var(--primary-color);
+        background: var(--secundary-color);
         transition: 0.3s ease width;
         left: 0;
     }
@@ -980,12 +1013,12 @@ footer .footer-p5:hover{
     }
     
     .enviar{
-        background: var(--primary-color);
+        background: var(--secundary-color);
         border: none;
         display: block;
         width: 80%;
         margin: 10px auto;
-        color: white;
+        color: var(--primary-color);
         height: 4rem;
         font-size: 1.6rem;
         border-radius: 1rem;
@@ -995,7 +1028,7 @@ footer .footer-p5:hover{
     footer{
         width: 100%;
         height: auto;
-        background-color: var(--primary-color);
+        background-color: var(--secundary-color);
         color: white;
     
         display: inline-block;
@@ -1093,27 +1126,29 @@ footer .footer-p5:hover{
         z-index: 100;
         width: 100%;
         min-width: 320px;
-        height: 20rem;
+        height: 25rem;
     }
 
     nav{
-    border: white solid 1px;
+    /* border: red solid 1px; */
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content:center;
     flex-direction: column;
     width: 100%;
     height: 100%;
     }
 
     .nav_logo{
-        border: white solid 1px;
+        position: relative;
+        top: -3rem;
+        /* border: white solid 1px; */
         background-image: url(../imgs/RJ&V-crema.svg);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 13rem;
-        width: 18rem;
-        height: 18rem;
+        background-size: 18rem;
+        width: 100%;
+        height: 15rem;
     }
 
     .menu-icon{
@@ -1121,6 +1156,7 @@ footer .footer-p5:hover{
     }
 
     .menu-options{
+        background-color: transparent;
         border-top: var(--secundary-color) solid 1px;
     
         /*filter: blur(4px);*/
@@ -1130,17 +1166,18 @@ footer .footer-p5:hover{
         flex-wrap: wrap;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         
         position:relative;
 
-        top: 0px;
-        width: 24%;
+        top: -4rem;
+        width: 35%;
         max-width: 625px;
-        min-width: 300px;
+        min-width: 360px;
         font-size: 1.6rem;
         height: 6rem;
 
-        left: 35%;
+        left: 33%;
         transition: left 0.3s;
 
         /*height: calc(100% - 6rem);
@@ -1149,21 +1186,26 @@ footer .footer-p5:hover{
         overflow-y: auto;*/
     }
 
+    .blur{
+        display: none;
+    }
+
     ul li a:hover,
     ul li .menu-link_active {
-        color: var(--primary-color);
+        color: var(--secundary-color);
         transition: 0.2s;
-        color: white;
+        border-radius: 20%;
     }
 
 
 
     .menu-options li {
         width: max-content;
-        height: 8rem;
+        height: 6rem;
         display: flex;
+        
 
-        margin: 0 1rem;
+        margin: 0 2rem;
         color: var(--secundary-color);
 
         
@@ -1181,19 +1223,22 @@ footer .footer-p5:hover{
         left: 0;
     }
 
-
     .main-bgimg{
+
+        /* border: orangered solid 1px; */
         background-image: url(../imgs/web1escritoriofacebook.png);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100%;
 
         width: 100%;
+        min-width: 1160px;
         height: 65rem;
 
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
+        margin-top: -7rem;
     }
 
     .main-land1{
@@ -1249,6 +1294,7 @@ footer .footer-p5:hover{
     .main-land2 .btn-ver:hover{
         background-color: white;
         transition: 0.2s;
+        color: var(--primary-color);
     }
 
     /**/
@@ -1262,14 +1308,15 @@ footer .footer-p5:hover{
     }
 
     .second{
-        width: 50%;
+        width: 100%;
         height: auto;
-        padding: 0 4.1rem;
+        padding-left: 20rem;
+        padding-right: 20rem;
         padding-top: 7.4rem;
         padding-bottom: 7.4rem;
         background-color: var(--secundary-color);
         
-        
+        margin-top: 7rem;
     }
 
     .second .second-head{
@@ -1372,9 +1419,7 @@ footer .footer-p5:hover{
         height: auto;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 5rem;
-        margin-top: 5rem;
+        justify-content: center;    
     }
 
     .fifth p{
@@ -1383,7 +1428,7 @@ footer .footer-p5:hover{
         align-items: center;
         font-size: 2.5rem;
         font-weight: bolder;
-        color: var(--primary-color);
+        color: var(--secundary-color);
         margin-bottom: 1.5rem;
     }
 
@@ -1419,7 +1464,7 @@ footer .footer-p5:hover{
     }
 
     label{
-        color: #808080;
+        color: var(--secundary-color);
         font-size: 16px;
         position: absolute;
         left: 5px;
@@ -1432,7 +1477,7 @@ footer .footer-p5:hover{
     input:valid~label{
         top: -14px;
         font-size: 12px;
-        color: var(--primary-color);
+        color: var(--secundary-color);
     }
 
     .barra{
@@ -1447,7 +1492,7 @@ footer .footer-p5:hover{
         height: 2px;
         bottom: 0;
         position: absolute;
-        background: var(--primary-color);
+        background: var(--secundary-color);
         transition: 0.3s ease width;
         left: 0;
     }
@@ -1458,12 +1503,12 @@ footer .footer-p5:hover{
     }
 
     .enviar{
-        background: var(--primary-color);
+        background: var(--secundary-color);
         border: none;
         display: block;
         width: 90%;
         margin: 10px auto;
-        color: white;
+        color: var(--primary-color);
         height: 4rem;
         font-size: 1.6rem;
         border-radius: 1rem;
@@ -1473,7 +1518,7 @@ footer .footer-p5:hover{
     footer{
         width: 100%;
         height: auto;
-        background-color: var(--primary-color);
+        background-color: var(--secundary-color);
         color: white;
 
         display: inline-block;
@@ -1505,7 +1550,7 @@ footer .footer-p5:hover{
 
     footer .footer-p3{
         list-style: none;
-        color: white;
+        color: var(--primary-color);
         width: 100%;
         height: auto;
         font-size: 2rem;
